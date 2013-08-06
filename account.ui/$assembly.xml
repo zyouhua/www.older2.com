@@ -3,16 +3,19 @@
 
   <dependences />
 
-  <rids>
-    
-    <__t id="account.accoutConfig"
-         url="url://www.wanmei.com/account\account/config*accountConfig.xml" />
-
-  </rids>
+  <rids />
 
   <uids />
 
-  <addins />
+  <addins>
+    
+    <__t id="account.message"
+         isInclude="false"
+         include="url://www.wanmei.com/account\account.message"
+         optimal=""
+         forceUsed="false"/>
+
+  </addins>
 
   <plugins />
   

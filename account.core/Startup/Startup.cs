@@ -6,7 +6,6 @@ namespace account.core
     {
         public void _runStart()
         {
-            System.Console.WriteLine("hello world!");
         }
     }
 }
