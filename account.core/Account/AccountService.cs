@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 using platform;
 using account.message;
@@ -36,8 +33,7 @@ namespace account.core
             uint accountMgrCount_ = accountConfig_._getAccountMgrCount();
             for (uint i = 0; i < accountMgrCount_; ++i)
             {
-                AccountMgr accountMgr_ = new AccountMgr();
-                accountMgr_._setId(i);
+                AccountMgr accountMgr_ = new AccountMgr(i);
                 mAccountMgrs[i] = accountMgr_;
             }
         }

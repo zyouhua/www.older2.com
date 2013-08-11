@@ -153,11 +153,11 @@
     <Compile Include="Platform\Utility\__tuple.cs" />
     <Compile Include="Platform\Serialize\Xml\XmlISerialize.cs" />
     <Compile Include="Platform\Serialize\Xml\XmlOSerialize.cs" />
-    <Compile Include="Platform\Serialize\MySql\SqlStatus_.cs" />
     <Compile Include="Platform\Serialize\MySql\ISqlStream.cs" />
     <Compile Include="Platform\Property\PropertyId.cs" />
     <Compile Include="Platform\Thread\MissionPool\MissionPool.cs" />
     <Compile Include="Platform\Property\PropertySink.cs" />
+    <Compile Include="Platform\Serialize\MySql\SqlType_.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />

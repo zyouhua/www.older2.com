@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+using platform;
+using account.message;
 
 namespace account.core
 {
     public class AccountMgr
     {
-        public void _setId(uint nId)
+        public ErrorCode_ _createAccount(string nAccountName, string nNickname, string nPassward)
         {
-            mId = nId;
         }
 
-        public AccountMgr()
+        public AccountMgr(uint nId)
         {
             mAccounts = new Dictionary<uint, Account>();
             mId = 0;

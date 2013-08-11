@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using platform;
-
-namespace account
+namespace platform
 {
     public class DeviceService
     {
