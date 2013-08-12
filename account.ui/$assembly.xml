@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<assemblyDescriptor>
+
+  <dependences />
+
+  <rids>
+    
+    <__t id="account.accoutConfig"
+         url="url://www.wanmei.com/account\account/config*accountConfig.xml" />
+
+  </rids>
+
+  <uids />
+
+  <addins />
+
+  <plugins />
+  
+</assemblyDescriptor>
