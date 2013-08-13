@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace account.message
+﻿namespace account.message
 {
-    public class ErrorCode_
+    public enum ErrorCode_ : uint
     {
+        mSucess_,
+        mFail_,
+        mPassward_,
+        mDevice_,
+        mDeviceType_,
+        mDeviceId_
     }
 }

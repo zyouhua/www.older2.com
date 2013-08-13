@@ -12,6 +12,16 @@
 
         }
 
+        public void _runInit(ILog nLog)
+        {
+            mLog = nLog;
+        }
+
+        public LogSingleton()
+        {
+            mLog = null;
+        }
+
         ILog mLog;
     }
 }

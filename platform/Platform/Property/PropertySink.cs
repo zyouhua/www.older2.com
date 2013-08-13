@@ -17,6 +17,11 @@ namespace platform
             mInits[propertyId_] = nPropertyId;
         }
 
+        public PropertySink()
+        {
+            mInits = new Dictionary<uint, PropertyId>();
+        }
+
         Dictionary<uint, PropertyId> mInits;
     }
 }
