@@ -6,6 +6,8 @@ namespace account.core
     {
         public void _runStart()
         {
+            AccountService accountService_ = __singleton<AccountService>._instance();
+            accountService_._runInit();
         }
     }
 }
