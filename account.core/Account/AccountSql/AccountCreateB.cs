@@ -4,22 +4,36 @@ using platform;
 
 namespace account.core
 {
-    public class AccountCreateB : ISqlStream
+    public class AccountCreateB : ISqlHeadstream
     {
-        public void _serialize(ISqlSerialize nSqlSerialize)
+        public void _runSelect(SqlFormat nSqlFormat)
         {
-            nSqlSerialize._serialize(ref mAccountId, @"id");
-            nSqlSerialize._serialize(ref mAccountName, @"accountName");
-            nSqlSerialize._serialize(ref mNickName, @"nickName");
-            nSqlSerialize._serialize(ref mPassward, @"passward");
-            nSqlSerialize._serialize(ref mTicks, @"createTime");
-            nSqlSerialize._serialize(ref mClusterID, @"clusterID");
-            nSqlSerialize._serialize(ref mServerID, @"serverID");
-            nSqlSerialize._serialize(ref mDatabaseId, @"databaseId");
-            nSqlSerialize._serialize(ref mTableId, @"tableId");
+            nSqlFormat._serialize(ref mAccountId, @"id");
+            nSqlFormat._serialize(ref mAccountName, @"accountName");
+            nSqlFormat._serialize(ref mNickName, @"nickName");
+            nSqlFormat._serialize(ref mPassward, @"passward");
+            nSqlFormat._serialize(ref mTicks, @"createTime");
+            nSqlFormat._serialize(ref mClusterID, @"clusterID");
+            nSqlFormat._serialize(ref mServerID, @"serverID");
+            nSqlFormat._serialize(ref mDatabaseId, @"databaseId");
+            nSqlFormat._serialize(ref mTableId, @"tableId");
         }
 
-        public AccountCreateB(string nAccountName, string nNickname, string nPassward)
+        public void _runWhere(SqlFormat nSqlFormat)
+        {
+        }
+
+        public string _tableName()
+        {
+            return ("account_" + mAccountMgrId);
+        }
+
+        public SqlType_ _sqlType()
+        {
+            return SqlType_.mInsert_;
+        }
+
+        public AccountCreateB(string nAccountName, string nNickname, string nPassward, uint nAccountMgrId)
         {
             mAccountId = GenerateId._runNameId(nAccountName);
             mClusterID = GenerateId._runClusterID(nAccountName);
@@ -27,6 +41,7 @@ namespace account.core
             mDatabaseId = GenerateId._runDatabaseId(nAccountName);
             mTableId = GenerateId._runTableId(nAccountName);
             mAccountName = nAccountName;
+            mAccountMgrId = nAccountMgrId;
             mNickName = nNickname;
             mPassward = nPassward;
             mTicks = DateTime.Now.Ticks;
@@ -41,5 +56,6 @@ namespace account.core
         uint mServerID;
         uint mDatabaseId;
         uint mTableId;
+        uint mAccountMgrId;
     }
 }

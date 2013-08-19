@@ -40,11 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountSql\AccountLoginB.cs" />
-    <Compile Include="Account\Account.cs" />
+    <Compile Include="Account\AccountService\Account.cs" />
     <Compile Include="Account\AccountSql\AccountCreateB.cs" />
-    <Compile Include="Account\AccountConfig.cs" />
-    <Compile Include="Account\AccountMgr.cs" />
-    <Compile Include="Account\AccountService.cs" />
+    <Compile Include="Account\Config\AccountConfig.cs" />
+    <Compile Include="Account\AccountService\AccountMgr.cs" />
+    <Compile Include="Account\AccountService\AccountService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup\Startup.cs" />
   </ItemGroup>

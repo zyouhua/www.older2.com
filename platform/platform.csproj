@@ -42,20 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Platform\Serialize\SqlQuery\ISqlStream.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\ISqlHeadstream.cs" />
     <Compile Include="Platform\AppUrls\AppUrls.cs" />
     <Compile Include="Platform\Device\DeviceService.cs" />
     <Compile Include="Platform\Device\DeviceStatus.cs" />
     <Compile Include="Platform\Thread\MissionPool\Mission.cs" />
     <Compile Include="Platform\Property\IProperty.cs" />
     <Compile Include="Platform\Property\PropertyMgr.cs" />
-    <Compile Include="Platform\Serialize\MySql\MySqlWhere.cs" />
-    <Compile Include="Platform\Serialize\MySql\MySqlDataReaderSerialize.cs" />
     <Compile Include="Platform\Log\ILog.cs" />
     <Compile Include="Platform\Log\LogSingleton.cs" />
-    <Compile Include="Platform\Serialize\MySql\MySqlSelect.cs" />
-    <Compile Include="Platform\Serialize\MySql\ISqlSerialize.cs" />
-    <Compile Include="Platform\Serialize\MySql\MySqlSingleton.cs" />
-    <Compile Include="Platform\Serialize\MySql\MySqlInsert.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\SqlFormat.cs" />
     <Compile Include="Platform\Thread\OncePool\IRunnable.cs" />
     <Compile Include="Platform\Thread\OncePool\Once.cs" />
     <Compile Include="Platform\Thread\OncePool\OncePool.cs" />
@@ -153,11 +150,12 @@
     <Compile Include="Platform\Utility\__tuple.cs" />
     <Compile Include="Platform\Serialize\Xml\XmlISerialize.cs" />
     <Compile Include="Platform\Serialize\Xml\XmlOSerialize.cs" />
-    <Compile Include="Platform\Serialize\MySql\ISqlStream.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\SqlQuery.cs" />
     <Compile Include="Platform\Property\PropertyId.cs" />
     <Compile Include="Platform\Thread\MissionPool\MissionPool.cs" />
     <Compile Include="Platform\Property\PropertySink.cs" />
-    <Compile Include="Platform\Serialize\MySql\SqlType_.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\SqlType_.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\SqlDeal_.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />

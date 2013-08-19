@@ -34,6 +34,12 @@
             set { mType = value; }
         }
 
+        public DeviceStatus(uint nId, uint nType)
+        {
+            mId = nId;
+            mType = nType;
+        }
+
         public DeviceStatus()
         {
             mId = 0;

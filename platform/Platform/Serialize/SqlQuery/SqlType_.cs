@@ -2,9 +2,9 @@
 {
     public enum SqlType_ : byte
     {
-        mInsert_,
         mSelect_,
+        mInsert_,
         mUpdate_,
-        mWhere_
+        mDelete_
     }
 }
