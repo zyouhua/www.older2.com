@@ -6,7 +6,7 @@ namespace account.core
 {
     public class AccountCreateB : ISqlHeadstream
     {
-        public void _runSelect(SqlFormat nSqlFormat)
+        public void _runSelect(ISqlFormat nSqlFormat)
         {
             nSqlFormat._serialize(ref mAccountId, @"id");
             nSqlFormat._serialize(ref mAccountName, @"accountName");
@@ -19,7 +19,7 @@ namespace account.core
             nSqlFormat._serialize(ref mTableId, @"tableId");
         }
 
-        public void _runWhere(SqlFormat nSqlFormat)
+        public void _runWhere(ISqlFormat nSqlFormat)
         {
         }
 

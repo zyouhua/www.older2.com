@@ -6,6 +6,9 @@
         mSelect_,
         mInsert_,
         mWhere_,
-        mUpdate_
+        mUpdate_,
+        mUpdateSelect_,
+        mUpdateWhen_,
+        mUpdateThen_,
     }
 }

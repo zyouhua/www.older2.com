@@ -25,7 +25,7 @@ namespace account.core
 
         void initAccountMgr()
         {
-            string accountConfigUrl_ = @"rid://account.accoutConfig";
+            string accountConfigUrl_ = @"rid://account.core.accoutConfig";
             PlatformSingleton platformSingleton_ = __singleton<PlatformSingleton>._instance();
             AccountConfig accountConfig_ = __singleton<AccountConfig>._instance();
             platformSingleton_._loadHeadstream<AccountConfig>(accountConfig_, accountConfigUrl_);

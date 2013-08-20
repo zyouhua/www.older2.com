@@ -42,11 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Platform\Serialize\SqlQuery\MySqlReader.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\ISqlFormat.cs" />
     <Compile Include="Platform\Serialize\SqlQuery\ISqlStream.cs" />
     <Compile Include="Platform\Serialize\SqlQuery\ISqlHeadstream.cs" />
     <Compile Include="Platform\AppUrls\AppUrls.cs" />
     <Compile Include="Platform\Device\DeviceService.cs" />
     <Compile Include="Platform\Device\DeviceStatus.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\SqlErrorCode_.cs" />
     <Compile Include="Platform\Thread\MissionPool\Mission.cs" />
     <Compile Include="Platform\Property\IProperty.cs" />
     <Compile Include="Platform\Property\PropertyMgr.cs" />
@@ -156,6 +159,7 @@
     <Compile Include="Platform\Property\PropertySink.cs" />
     <Compile Include="Platform\Serialize\SqlQuery\SqlType_.cs" />
     <Compile Include="Platform\Serialize\SqlQuery\SqlDeal_.cs" />
+    <Compile Include="Platform\Serialize\SqlQuery\SqlSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />

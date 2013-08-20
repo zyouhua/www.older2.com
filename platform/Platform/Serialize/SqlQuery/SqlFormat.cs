@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace platform
 {
-    public class SqlFormat
+    public class SqlFormat : ISqlFormat
     {
         static readonly string mCharacter = @"`";
 
@@ -25,6 +25,7 @@ namespace platform
                     if (temp_)
                     {
                         mValue += "),(";
+                        mBeg = true;
                     }
                     i._runSelect(this);
                     temp_ = true;
@@ -32,8 +33,45 @@ namespace platform
             }
             else if (SqlDeal_.mUpdate_ == mSqlDeal)
             {
-
-
+                mUpdate.Clear();
+                mSqlDeal = SqlDeal_.mUpdateSelect_;
+                foreach (__t i in nValue)
+                {
+                    i._runSelect(this);
+                    break;
+                }
+                bool temp_ = true;
+                foreach (string i in mUpdate)
+                {
+                    mName = i;
+                    if (false == temp_)
+                    {
+                        mValue += ",";
+                    }
+                    mValue += mName;
+                    mValue += "= CASE ";
+                    mSqlDeal = SqlDeal_.mSelect_;
+                    mBeg = true;
+                    foreach (__t j in nValue)
+                    {
+                        j._runWhen(this);
+                        break;
+                    }
+                    foreach (__t j in nValue)
+                    {
+                        mSqlDeal = SqlDeal_.mUpdateWhen_;
+                        mValue += " WHEN ";
+                        j._runWhen(this);
+                        mSqlDeal = SqlDeal_.mUpdateThen_;
+                        mValue += "THEN ";
+                        j._runSelect(this);
+                    }
+                    mValue += " END";
+                    if (temp_)
+                    {
+                        temp_ = false;
+                    }
+                }
                 mValue += " WHERE ";
                 mSqlDeal = SqlDeal_.mSelect_;
                 mBeg = true;
@@ -57,6 +95,11 @@ namespace platform
         }
 
         public void _serialize<__t>(ref __t nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        void _runSerialize<__t>(ref __t nValue, string nName)
         {
             if (SqlDeal_.mSelect_ == mSqlDeal)
             {
@@ -99,7 +142,7 @@ namespace platform
                     mValue += ",";
                 }
                 mValue += nName;
-                mValue += " = ";
+                mValue += "=";
                 mValue += mCharacter;
                 mValue += Convert.ToString(nValue);
                 mValue += mCharacter;
@@ -108,10 +151,89 @@ namespace platform
                     mBeg = false;
                 }
             }
+            else if (SqlDeal_.mUpdateSelect_ == mSqlDeal)
+            {
+                mUpdate.Add(nName);
+            }
+            else if (SqlDeal_.mUpdateWhen_ == mSqlDeal)
+            {
+                mValue += mCharacter;
+                mValue += Convert.ToString(nValue);
+                mValue += mCharacter;
+                mValue += " ";
+            }
+            else if (SqlDeal_.mUpdateThen_ == mSqlDeal)
+            {
+                if (mName == nName)
+                {
+                    mValue += mCharacter;
+                    mValue += Convert.ToString(nValue);
+                    mValue += mCharacter;
+                }
+            }
             else
             {
-
             }
+        }
+
+        public void _serialize(ref bool nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref sbyte nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref byte nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref short nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref ushort nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref int nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref uint nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref long nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref ulong nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref string nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref float nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
+        }
+
+        public void _serialize(ref double nValue, string nName)
+        {
+            this._runSerialize(ref nValue, nName);
         }
 
         public void _serialize(string nValue)
@@ -194,6 +316,7 @@ namespace platform
             mSqlDeal = SqlDeal_.mUpdate_;
             nSqlHeadstream._runSelect(this);
             mSqlDeal = SqlDeal_.mWhere_;
+            mValue += @" ";
             nSqlHeadstream._runWhere(this);
             mSqlDeal = SqlDeal_.mNone_;
         }
@@ -205,13 +328,17 @@ namespace platform
 
         public SqlFormat()
         {
+            mUpdate = new List<string>();
             mSqlDeal = SqlDeal_.mNone_;
             mValue = null;
+            mName = null;
             mBeg = false;
         }
 
+        List<string> mUpdate;
         SqlDeal_ mSqlDeal;
         string mValue;
+        string mName;
         bool mBeg;
     }
 }

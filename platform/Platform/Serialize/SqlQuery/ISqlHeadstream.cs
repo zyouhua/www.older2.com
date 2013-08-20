@@ -2,9 +2,9 @@
 {
     public interface ISqlHeadstream
     {
-        void _runSelect(SqlFormat nSqlFormat);
+        void _runSelect(ISqlFormat nSqlFormat);
 
-        void _runWhere(SqlFormat nSqlFormat);
+        void _runWhere(ISqlFormat nSqlFormat);
 
         string _tableName();
 

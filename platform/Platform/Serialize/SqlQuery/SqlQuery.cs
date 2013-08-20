@@ -2,14 +2,15 @@
 
 namespace platform
 {
-    public class SqlQuery
+    public class SqlQuery : SqlFormat
     {
-        public void _runFormat(SqlFormat nSqlFormat)
+        public string _runFormat()
         {
             foreach (ISqlHeadstream i in mSqlHeadstreams)
             {
-                nSqlFormat._runFormat(i);
+                this._runFormat(i);
             }
+            return this._sqlCommand();
         }
 
         public void _addHeadstream(ISqlHeadstream nSqlHeadstreams)

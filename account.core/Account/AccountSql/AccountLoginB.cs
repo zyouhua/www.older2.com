@@ -6,14 +6,14 @@ namespace account.core
 {
     public class AccountLoginB : ISqlHeadstream
     {
-        public void _runSelect(SqlFormat nSqlFormat)
+        public void _runSelect(ISqlFormat nSqlFormat)
         {
             nSqlFormat._serialize(ref mNickName, @"nickName");
             nSqlFormat._serialize(ref mPassward, @"passward");
             nSqlFormat._serialize(ref mTicks, @"createTime");
         }
 
-        public void _runWhere(SqlFormat nSqlFormat)
+        public void _runWhere(ISqlFormat nSqlFormat)
         {
             nSqlFormat._serialize(ref mAccountId, @"WHERE id = ");
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace startup
 {
@@ -14,6 +15,7 @@ namespace startup
                 routeTemplate: "api/{namespace}/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
                 );
+            config.Services.Replace(typeof(IHttpControllerSelector), new NamespaceHttpControllerSelector(config));
         }
     }
 }
